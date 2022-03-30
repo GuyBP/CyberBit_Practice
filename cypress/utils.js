@@ -78,8 +78,8 @@ export async function getSingleUser() {
     return { status, firstName, lastName, data };
 }
 
-export async function createUser() {
-    const response = await axios.post(`${URL}api/users`, { "name": 'Guy', "job": 'Tester' });
+export async function createUser(nameInput, jobInput) {
+    const response = await axios.post(`${URL}api/users`, { "name": nameInput, "job": jobInput });
 
     const name = response.data.name;
     const job = response.data.job;
@@ -89,8 +89,8 @@ export async function createUser() {
     return { name, job, createdAt, status };
 }
 
-export async function updateUser() {
-    const response = await axios.put(`${URL}api/users/2`, { "name": 'Guy', "job": 'Tester' });
+export async function updateUser(nameInput, jobInput) {
+    const response = await axios.put(`${URL}api/users/2`, { "name": nameInput, "job": jobInput });
 
     const name = response.data.name;
     const job = response.data.job;

@@ -71,7 +71,7 @@ describe('API Tests', () => {
 
         const expectedCreatedAt = today;
 
-        const { name, job, createdAt, status } = await api.createUser();
+        const { name, job, createdAt, status } = await api.createUser(expectedName, expectedJob);
 
         if (status !== expectedStatus) {
             throw new Error(`Test failed: expected status doesn't match actual status`);
@@ -104,7 +104,7 @@ describe('API Tests', () => {
 
         const expectedUpdatedAt = today;
 
-        const { name, job, updatedAt, status } = await api.updateUser();
+        const { name, job, updatedAt, status } = await api.updateUser(expectedName, expectedJob);
 
         if (status !== expectedStatus) {
             throw new Error(`Test failed: expected status doesn't match actual status`);

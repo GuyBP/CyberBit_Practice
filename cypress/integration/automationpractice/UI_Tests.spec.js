@@ -7,7 +7,7 @@ describe('UI Tests', () => {
     cy.visit('http://automationpractice.com/index.php');
   })
 
-  it.only('Adding first item from the list to the cart', () => {
+  it('Adding first item from the list to the cart', () => {
 
     // Get product name
     let productNameBefore;
