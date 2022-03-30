@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+import * as page from '../../utils.js'
+
 describe('UI Tests', () => {
   beforeEach(() => {
     cy.visit('http://automationpractice.com/index.php');
@@ -9,15 +11,15 @@ describe('UI Tests', () => {
 
     // Get product name
     let productNameBefore;
-    cy.get('a.product-name').first().should(($a) => {
+    page.getProductName().first().should(($a) => {
       productNameBefore = $a.text();
     })
 
     // Add first item to the cart 
-    cy.get('a').contains('Add to cart').parent().first().click();
+    page.getAddToCartBtn().parent().first().click();
 
     // Assert pop up text “Product successfully added to your shopping cart”
-    cy.get('h2').contains('Product successfully added to your shopping cart');
+    page.getProductAddedTitle();
     cy.wait(10000);
 
     // Assert the correct product was added
@@ -77,7 +79,7 @@ describe('UI Tests', () => {
 
   })
 
-  it.only('Confirm user can change images in the gallery', () => {
+  it.skip('Confirm user can change images in the gallery', () => {
 
     cy.get('li.homeslider-container').first().within(() => {
       cy.get('img').should('have.attr', 'src', 'http://automationpractice.com/modules/homeslider/images/sample-3.jpg');
