@@ -82,14 +82,20 @@ describe('UI Tests', () => {
 
   })
 
-  it.skip('Confirm user can change images in the gallery', () => {
+  it('Confirm user can change images in the gallery', () => {
+    const imgSrc = 'http://automationpractice.com/modules/homeslider/images/sample-3.jpg'
 
-    cy.get('li.homeslider-container').first().within(() => {
-      cy.get('img').should('have.attr', 'src', 'http://automationpractice.com/modules/homeslider/images/sample-3.jpg');
+    page.getLiSlider().first().within(() => {
+      cy.get('img').should('have.attr', 'src', imgSrc).should('be.visible');
     })
 
-    cy.get('a.bx-next').click();
+    page.getNextBtn().click();
 
+    cy.wait(500);
+
+    page.getLiSlider().first().within(() => {
+      cy.get('img').should('have.attr', 'src', imgSrc).should('not.be.visible');
+    })
 
   })
 })

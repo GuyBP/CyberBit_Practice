@@ -57,6 +57,14 @@ export function getSuccessAlert() {
     return cy.get('p.alert.alert-success');
 }
 
+export function getLiSlider() {
+    return cy.get('li.homeslider-container');
+}
+
+export function getNextBtn() {
+    return cy.get('a.bx-next');
+}
+
 export async function getUsersList() {
     const response = await axios.get(`${URL}api/users`);
 
