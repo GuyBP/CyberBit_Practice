@@ -18,6 +18,7 @@ describe('UI Tests', () => {
     // Add first item to the cart 
     page.getAddToCartBtn().parent().first().click().as('addToCart');
 
+    // Waiting for summary cart to open
     cy.wait(8000);
 
     // Assert pop up text “Product successfully added to your shopping cart”
