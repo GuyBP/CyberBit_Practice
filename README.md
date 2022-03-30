@@ -1,2 +1,2 @@
-# UI_Testing
+# CyberBit_Practice
 A JavaScript project
